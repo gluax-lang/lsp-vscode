@@ -3,13 +3,13 @@ const { execSync } = require("child_process");
 const os = require("os");
 const path = require("path");
 const { LanguageClient, TransportKind } = require("vscode-languageclient/node");
-const fs = require("fs");
 
 let client;
 
 function activate() {
-  let serverExe;
+  let command = "gluax";
   const devPath = process.env.GLUAXDEV;
+  const args = ["lsp"];
 
   if (devPath) {
     const tmpDir = os.tmpdir();
@@ -21,23 +21,16 @@ function activate() {
         windowsHide: true,
       });
       console.log(`Built LSP binary at ${tempExe}`);
-      serverExe = tempExe;
+      command = tempExe;
     } catch (err) {
       vscode.window.showErrorMessage("Failed to build gluax lsp server");
       return; // abort activation if build failed
     }
-  } else {
-    serverExe = path.join(__dirname, "gluax_lsp.exe");
-    if (!fs.existsSync(serverExe)) {
-      vscode.window.showErrorMessage("gluax_lsp.exe not found");
-      return;
-    }
   }
 
-  // 3) Point the serverOptions at your temp-path executable
   const serverOptions = {
-    run: { command: serverExe, transport: TransportKind.stdio },
-    debug: { command: serverExe, transport: TransportKind.stdio },
+    run: { command, args, transport: TransportKind.stdio },
+    debug: { command, args, transport: TransportKind.stdio },
   };
 
   const clientOptions = {
