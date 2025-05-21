@@ -1,0 +1,196 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "GLuaX",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#preprocessor"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#booleans"
+		},
+		{
+			"include": "#punctuations"
+		},
+		{
+			"include": "#braces"
+		},
+		{
+			"include": "#catch_block"
+		},
+		{
+			"include": "#identifiers"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.gluax",
+					"match": "//.*$"
+				},
+				{
+					"name": "comment.block.gluax",
+					"begin": "/\\*",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.gluax"
+						}
+					},
+					"end": "\\*/",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.gluax"
+						}
+					},
+					"patterns": []
+				}
+			]
+		},
+		"preprocessor": {
+			"patterns": [
+				{
+					"name": "meta.preprocessor.gluax",
+					"match": "^(\\s*#)(\\s*(?:define|ifdef|else|endif))(\\b.*)$",
+					"captures": {
+						"1": {
+							"name": "comment.line.preprocessor.gluax"
+						},
+						"2": {
+							"name": "comment.line.preprocessor.gluax"
+						},
+						"3": {
+							"name": "source.gluax"
+						}
+					}
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.gluax",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.gluax",
+							"match": "\\\\."
+						}
+					]
+				},
+				{
+					"name": "string.quoted.single.gluax",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+						{
+							"name": "constant.character.escape.gluax",
+							"match": "\\\\."
+						}
+					]
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.gluax",
+					"match": "\\belse\\s+if\\b"
+				},
+				{
+					"name": "keyword.control.gluax",
+					"match": "\\b(unsafe_cast_as|if|while|loop|return|func|let|else|import|trait|struct|impl|self|Self|throw|pub|for|as|use|break|continue)\\b"
+				},
+				{
+					"name": "keyword.control.run_lua",
+					"match": "(?<!\\w)@run_lua\\b"
+				}
+			]
+		},
+		"types": {
+			"patterns": [
+				{
+					"name": "storage.type.gluax",
+					"match": "\\b(string|bool|number|nil|any|vec|map|option|anyfunc|table)\\b"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.gluax",
+					"match": "\\b\\d+(\\.\\d+)?\\b"
+				}
+			]
+		},
+		"booleans": {
+			"patterns": [
+				{
+					"name": "constant.language.boolean.gluax",
+					"match": "\\b(true|false)\\b"
+				}
+			]
+		},
+		"punctuations": {
+			"patterns": [
+				{
+					"name": "punctuation.operator.gluax",
+					"match": "(\\.{3}|<<|>>|==|!=|<=|>=|&&|\\|\\||\\.\\.|->|\\*\\*|\\+|\\-|\\*|\\/|%|<|>|=|\\^|#|!|;|:|,|\\(|\\)|\\{|\\}|\\[|\\]|\\.|\\||~|&)"
+				}
+			]
+		},
+		"braces": {
+			"patterns": [
+				{
+					"name": "punctuation.section.block.begin.gluax",
+					"match": "\\{"
+				},
+				{
+					"name": "punctuation.section.block.end.gluax",
+					"match": "\\}"
+				}
+			]
+		},
+		"catch_block": {
+			"patterns": [
+				{
+					"begin": "\\b(catch)\\s+((\\p{L}|_)(\\p{L}|\\p{N}|_)*)\\b",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.control.catch.gluax"
+						},
+						"2": {
+							"name": "variable.parameter.catch.gluax"
+						}
+					},
+					"end": "(?=\\s*\\{)",
+					"patterns": []
+				}
+			]
+		},
+		"identifiers": {
+			"patterns": [
+				{
+					"name": "identifier.gluax",
+					"match": "(\\p{L}|_)(\\p{L}|\\p{N}|_)*"
+				}
+			]
+		}
+	},
+	"scopeName": "source.gluax"
+}

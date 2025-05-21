@@ -1,0 +1,39 @@
+{
+  "name": "gluax-language-extension",
+  "displayName": "gluax-language-extension",
+  "description": "",
+  "version": "0.0.1",
+  "main": "./extension.js",
+  "engines": {
+    "vscode": "^1.98.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "gluax",
+        "aliases": [
+          "GLuaX",
+          "GluaX",
+          "gluax"
+        ],
+        "extensions": [
+          "gluax"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "gluax",
+        "scopeName": "source.gluax",
+        "path": "./syntaxes/gluax.tmLanguage.json"
+      }
+    ]
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  }
+}
