@@ -1,9 +1,15 @@
 {
-  "name": "gluax-language-extension",
-  "displayName": "gluax-language-extension",
+  "name": "gluax-language",
+  "displayName": "GLuaX Language",
+  "publisher": "Srlion",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./extension.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gluax-lang/lsp-vscode.git"
+  },
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.98.0"
   },
