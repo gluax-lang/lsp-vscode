@@ -65,7 +65,7 @@
 			"patterns": [
 				{
 					"name": "meta.preprocessor.gluax",
-					"match": "^(\\s*#)(\\s*(?:define|ifdef|ifndef|elif|else|endif))(\\b.*)$",
+					"match": "^(\\s*#)(\\s*(?:define|undef|ifdef|ifndef|elif|else|endif))(\\b.*)$",
 					"captures": {
 						"1": {
 							"name": "comment.line.preprocessor.gluax"
