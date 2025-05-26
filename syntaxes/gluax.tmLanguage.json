@@ -126,7 +126,7 @@
 			"patterns": [
 				{
 					"name": "storage.type.gluax",
-					"match": "\\b(string|bool|number|nil|any|vec|map|option|anyfunc|table)\\b"
+					"match": "\\b(string|bool|number|nil|any|vec|map|option|anyfunc|table|unreachable)\\b"
 				}
 			]
 		},
