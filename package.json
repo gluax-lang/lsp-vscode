@@ -3,7 +3,7 @@
   "displayName": "GLuaX Language",
   "publisher": "Srlion",
   "description": "",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "./extension.js",
   "repository": {
     "type": "git",

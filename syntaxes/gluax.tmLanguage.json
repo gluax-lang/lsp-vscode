@@ -114,7 +114,7 @@
 				},
 				{
 					"name": "keyword.control.gluax",
-					"match": "\\b(unsafe_cast_as|if|while|loop|return|func|let|else|import|trait|struct|impl|self|Self|throw|pub|for|as|use|break|continue|dyn)\\b"
+					"match": "\\b(unsafe_cast_as|if|while|loop|return|func|let|else|import|trait|struct|impl|self|Self|throw|pub|for|as|use|break|continue|dyn|in)\\b"
 				},
 				{
 					"name": "keyword.control.run_lua",
