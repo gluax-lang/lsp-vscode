@@ -3,7 +3,7 @@
   "displayName": "GLuaX Language",
   "publisher": "Srlion",
   "description": "",
-  "version": "0.0.7",
+  "version": "0.0.23",
   "main": "./extension.js",
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
           "gluax"
         ],
         "extensions": [
-          "gluax"
+          ".gluax"
         ],
         "configuration": "./language-configuration.json"
       }
@@ -36,6 +36,9 @@
         "language": "gluax",
         "scopeName": "source.gluax",
         "path": "./syntaxes/gluax.tmLanguage.json",
+        "injectTo": [
+          "text.html.markdown"
+        ],
         "embeddedLanguages": {
           "meta.embedded.block.gluax": "gluax"
         }
